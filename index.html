@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Kūriņš — kafejnīca Kaugurciemā pie jūras</title>
+<meta name="description" content="Kūriņš — kafejnīca un krogs Kaugurciemā pie jūras kopš 1993. gada. Darba laiks, ēdienkarte, galdiņa rezervācija. Dizaina priekšlikums, nav oficiālā lapa.">
+<meta name="theme-color" content="#1c3a55">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Young+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&text=Kuhrinsc&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f2ec;
+  --sand:#e9e2d5;
+  --ink:#16232f;
+  --mute:#505c68;
+  --sea:#1c3a55;
+  --sea-deep:#132a3e;
+  --on-sea:#f2eee6;
+  --on-sea-mute:#a8b6c3;
+  --teak:#9c4f2c;
+  --open:#2e8457;
+  --open-on-sea:#86d0a3;
+  --serif:"Young Serif", Georgia, "Times New Roman", serif;
+  --black:"UnifrakturMaguntia", var(--serif);
+  --sans:"Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gut:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+[data-lang][hidden]{display:none!important}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+
+/* concept notice */
+.notice{background:#0e1b27;color:#c9d2da;font:400 12.5px/1.4 var(--sans);text-align:center;padding:8px var(--gut)}
+.notice b{color:#fff;font-weight:600}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:rgba(22,35,48,.1)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.mark{font:400 26px/1 var(--serif);text-decoration:none;letter-spacing:-.01em;color:var(--sea)}
+.mark-sub{font:500 13px/1.2 var(--sans);color:var(--mute);margin-left:-8px;display:none}
+.nav{display:none;gap:28px;margin-left:auto;font:500 15px/1 var(--sans)}
+.nav a{text-decoration:none;color:var(--ink)}
+.nav a:hover{color:var(--teak)}
+.lang{display:flex;gap:2px;margin-left:auto}
+.lang button{font:600 13px/1 var(--sans);letter-spacing:.04em;padding:10px 8px;color:var(--mute)}
+.lang button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.top .btn{display:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;font:600 16px/1.2 var(--sans);text-decoration:none;text-align:center;border:1.5px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.btn-sea{background:var(--sea);color:var(--on-sea)}
+.btn-sea:hover{background:var(--sea-deep)}
+.btn-light{background:var(--on-sea);color:var(--sea)}
+.btn-light:hover{background:#fff}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:rgba(127,127,127,.1)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* status */
+.status{display:inline-flex;align-items:center;gap:9px;font:500 15px/1.35 var(--sans)}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teak);flex:none}
+.status.is-open::before{background:var(--open)}
+.on-sea .status.is-open::before{background:var(--open-on-sea)}
+.on-sea .status::before{background:#e39a74}
+
+/* hero */
+.hero{background:var(--sea);color:var(--on-sea)}
+.hero-img img{width:100%;height:clamp(220px,calc(100vh - 450px),440px);height:clamp(220px,calc(100svh - 450px),440px);object-fit:cover;object-position:50% 45%}
+.hero-text{padding:26px var(--gut) 30px}
+.eyebrow{font:500 14.5px/1.4 var(--sans);color:var(--on-sea-mute)}
+.hero h1{font:400 clamp(36px,9.8vw,66px)/1.04 var(--serif);letter-spacing:-.015em;margin:10px 0 18px;text-wrap:balance}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;margin-bottom:22px}
+.rating{font:500 15px/1.35 var(--sans);color:var(--on-sea-mute)}
+.rating b{color:var(--on-sea);font-weight:600}
+.hero-btns{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:10px}
+.hero-btns .btn{padding:0 12px}
+
+/* sections */
+section{position:relative}
+.label{font:600 14px/1.3 var(--sans);color:var(--teak);margin-bottom:12px}
+.on-sea .label{color:#e3a37f}
+h2{font:400 clamp(31px,8.4vw,54px)/1.07 var(--serif);letter-spacing:-.012em;text-wrap:balance}
+.lead{font-size:18px;line-height:1.55;color:var(--mute);margin-top:16px;max-width:36em}
+.on-sea .lead{color:var(--on-sea-mute)}
+
+/* food */
+.food{padding:76px 0 84px}
+.plates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;padding:34px var(--gut) 0}
+.plates img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--sand)}
+.plates figcaption{font:500 14.5px/1.35 var(--sans);margin-top:9px;color:var(--ink)}
+.bigq{margin:56px 0 0;max-width:22em}
+.bigq p{font:400 clamp(27px,7.2vw,44px)/1.14 var(--serif);color:var(--sea);letter-spacing:-.01em}
+.bigq cite{display:block;font:500 14px/1.4 var(--sans);font-style:normal;color:var(--mute);margin-top:14px}
+.nb{white-space:nowrap}
+.menu{margin-top:56px;background:var(--sand);padding:30px 22px 28px}
+.menu h3{font:600 14px/1.3 var(--sans);color:var(--teak);margin-bottom:20px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px 28px}
+.groups h4{font:400 20px/1.25 var(--serif);color:var(--sea);margin-bottom:8px}
+.groups ul{list-style:none}
+.groups li{font-size:16.5px;line-height:1.45;padding:4px 0;color:var(--ink)}
+.menu .note{font-size:15.5px;line-height:1.55;color:var(--mute);margin-top:18px;max-width:34em}
+.menu-btns{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:22px}
+.menu-btns .btn{justify-content:space-between}
+
+/* rating */
+.rate{margin-top:64px}
+.score{display:flex;align-items:flex-end;gap:16px;padding-bottom:26px}
+.score .num{font:400 88px/.82 var(--serif);color:var(--sea);letter-spacing:-.03em}
+.score .of{font:500 15px/1.4 var(--sans);color:var(--mute);padding-bottom:4px}
+.score .of b{display:block;color:var(--ink);font-weight:600}
+.rate blockquote p{font:400 22px/1.34 var(--serif);color:var(--ink);max-width:21em}
+.rate cite{display:block;font:500 14px/1.4 var(--sans);font-style:normal;color:var(--mute);margin-top:10px}
+
+/* place */
+.place{background:var(--sand);padding:0 0 84px}
+.place-fig img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 60%}
+.place-fig figcaption{font:500 14px/1.4 var(--sans);color:var(--mute);padding:10px var(--gut) 0}
+.place-text{padding-top:44px}
+.placeq{margin-top:26px;padding-left:18px;border-left:3px solid var(--teak)}
+.placeq p{font:400 20px/1.42 var(--serif);color:var(--ink)}
+.placeq cite{display:block;font:500 14px/1.4 var(--sans);font-style:normal;color:var(--mute);margin-top:10px}
+.place-note{margin-top:30px;font-size:17px;line-height:1.62;color:var(--ink);max-width:33em}
+
+/* booking */
+.book{background:var(--sea);color:var(--on-sea);padding:0 0 88px}
+.book-fig img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.book-fig figcaption{font:500 14px/1.45 var(--sans);color:var(--on-sea-mute);padding:12px var(--gut) 0}
+.book-fig figcaption q{quotes:none;color:var(--on-sea)}
+.book-intro{padding-top:40px}
+.form{margin-top:36px}
+.field{margin-bottom:26px}
+.field > .fl{display:block;font:600 14px/1.3 var(--sans);color:var(--on-sea-mute);margin-bottom:10px}
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gut));padding:0 var(--gut)}
+.days::-webkit-scrollbar{display:none}
+.chip{border:1.5px solid rgba(242,238,230,.32);color:var(--on-sea);min-height:48px;padding:8px 10px;font:500 15px/1.2 var(--sans);text-align:center;transition:background .15s,border-color .15s}
+.chip:hover{border-color:rgba(242,238,230,.7)}
+.chip[aria-pressed="true"]{background:var(--on-sea);color:var(--sea);border-color:var(--on-sea)}
+.chip:disabled{opacity:.3;cursor:default}
+.days .chip{flex:0 0 auto;min-width:78px}
+.chip small{display:block;font:400 12.5px/1.2 var(--sans);opacity:.75;margin-top:3px}
+.times{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr);gap:0 16px}
+.stepper{display:flex;align-items:stretch;width:max-content;border:1.5px solid rgba(242,238,230,.32)}
+.stepper button{width:52px;height:50px;font:400 24px/1 var(--sans);color:var(--on-sea)}
+.stepper output{min-width:48px;display:flex;align-items:center;justify-content:center;font:600 18px/1 var(--sans)}
+.in{width:100%;height:52px;border:0;border-radius:0;background:var(--on-sea);color:var(--ink);font:400 17px/1 var(--sans);padding:0 14px;-webkit-appearance:none;appearance:none}
+.in::placeholder{color:#8b949c}
+.in:focus,.chip:focus-visible,.btn:focus-visible,.stepper button:focus-visible{outline:2px solid #e3a37f;outline-offset:2px}
+.msg{background:var(--sea-deep);padding:18px 18px 20px;margin:6px 0 18px}
+.msg .fl{font:600 13px/1.3 var(--sans);color:var(--on-sea-mute);margin-bottom:8px;display:block}
+.msg p{font:400 16px/1.5 var(--sans);color:var(--on-sea);word-wrap:break-word}
+.send{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.fine-sea{font-size:14px;line-height:1.5;color:var(--on-sea-mute);margin-top:16px}
+
+/* hours + where */
+.visit{padding:84px 0}
+.visit-grid{display:grid;gap:64px}
+.hours{margin-top:24px}
+.hours .r{display:flex;justify-content:space-between;gap:16px;padding:12px 14px;margin:0 -14px;font-size:17px}
+.hours .r span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.hours .r.today{background:var(--sand);font-weight:600}
+.hours .r.today > span[data-today]::after{content:attr(data-today);font:600 11.5px/1 var(--sans);letter-spacing:.02em;background:var(--sea);color:var(--on-sea);padding:4px 7px;margin-left:10px;vertical-align:2px}
+.visit .status{margin-top:18px}
+.addr{font:400 clamp(27px,7vw,38px)/1.15 var(--serif);color:var(--sea);margin-top:22px}
+.addr-sub{color:var(--mute);margin-top:10px;font-size:16px}
+.visit-btns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin-top:24px}
+.contacts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 20px;margin-top:40px}
+.contacts dt{font:600 13.5px/1.3 var(--sans);color:var(--mute)}
+.contacts dd{font-size:17px;margin-top:4px}
+.contacts a{text-decoration:none;border-bottom:1.5px solid rgba(28,58,85,.25)}
+.contacts a:hover{border-color:var(--sea)}
+
+/* footer */
+footer{background:var(--sea-deep);color:var(--on-sea);padding:64px 0 120px}
+.fmark{font:400 clamp(64px,20vw,176px)/1.05 var(--black);letter-spacing:0;margin-bottom:.12em}
+.fline{color:var(--on-sea-mute);margin-top:14px;font-size:16px}
+.fine{font-size:13.5px;line-height:1.6;color:#8fa0b0;margin-top:40px;max-width:52em}
+
+/* phone dock */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);box-shadow:0 -1px 0 rgba(22,35,48,.1),0 -10px 30px rgba(22,35,48,.08);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:8px;transform:translateY(110%);transition:transform .25s ease}
+.dock.show{transform:none}
+.dock .status{flex:1;min-width:0;font-size:14px;padding-left:4px}
+.dock .btn{min-height:48px;padding:0 16px;font-size:15.5px}
+.dock .call{width:48px;padding:0;color:var(--sea)}
+
+@media (min-width:600px){
+  :root{--gut:32px}
+  .plates{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .menu-btns{grid-template-columns:repeat(2,max-content)}
+  .send{grid-template-columns:repeat(2,max-content)}
+  .row2{grid-template-columns:max-content minmax(0,1fr)}
+}
+@media (min-width:861px){
+  :root{--gut:48px}
+  html{scroll-padding-top:84px}
+  .top .wrap{height:76px}
+  .mark{font-size:30px}
+  .mark-sub{display:block;margin-left:0}
+  .nav{display:flex}
+  .lang{margin-left:8px}
+  .top .btn{display:inline-flex;min-height:44px;font-size:15px;padding:0 18px}
+  .hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);min-height:min(calc(100vh - 110px),860px)}
+  .hero-img{position:relative;min-height:560px}
+  .hero-img img{position:absolute;inset:0;height:100%;object-position:50% 30%}
+  .hero-text{align-self:center;padding:64px clamp(32px,4vw,64px)}
+  .hero h1{font-size:clamp(34px,3.9vw,58px);margin:16px 0 26px}
+  .hero-btns{grid-template-columns:repeat(2,max-content)}
+  .hero-btns .btn{padding:0 26px}
+  .food{padding:120px 0}
+  .plates{gap:20px;max-width:1200px;margin:0 auto;padding:48px var(--gut) 0}
+  .plates figcaption{font-size:15px;margin-top:10px}
+  .food-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:auto 1fr;grid-template-areas:"q m" "r m";gap:0 64px;align-items:start;margin-top:72px}
+  .bigq{grid-area:q}
+  .menu{grid-area:m}
+  .rate{grid-area:r;margin-top:56px;padding-top:44px;border-top:1px solid rgba(22,35,48,.13)}
+  .bigq,.menu{margin-top:0}
+  .menu{padding:36px 36px 34px}
+  .score .num{font-size:104px}
+  .place{padding:0}
+  .place-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1440px;margin:0 auto}
+  .place-fig{position:relative;min-height:760px}
+  .place-fig img{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+  .place-fig figcaption{position:absolute;left:0;bottom:0;right:0;padding:72px 28px 20px;color:#fff;background:linear-gradient(rgba(10,20,30,0),rgba(10,20,30,.74));text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  .place-text{padding:110px clamp(40px,6vw,96px) 110px;max-width:680px}
+  .book{padding:0}
+  .book-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:72px;max-width:1200px;margin:0 auto;padding:110px var(--gut)}
+  .book-left{display:flex;flex-direction:column}
+  .book-left .book-fig{order:2;margin-top:48px}
+  .book-fig figcaption{padding:12px 0 0}
+  .book-intro{padding-top:0}
+  .form{margin-top:0}
+  .book .wrap{padding:0}
+  .days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin:0;padding:0}
+  .days .chip{min-width:0;padding:8px 4px}
+  .visit{padding:120px 0}
+  .visit-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:96px}
+  .dock{display:none}
+  footer{padding:90px 0 70px}
+}
+@media (max-width:860px){
+  .book-left{display:contents}
+}
+@media (max-width:440px){
+  .hours .r.today > span[data-today]::after{display:table;margin:7px 0 1px}
+}
+@media (max-width:370px){
+  :root{--gut:16px}
+  .dock .btn{padding:0 12px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dock{transition:none}}
+</style>
+</head>
+<body>
+<div class="notice"><b>Nikita:</b> <span data-lang="lv">Dizaina priekšlikums, nav Kūriņa oficiālā lapa.</span><span data-lang="en" hidden>A design proposal, not the official website of Kūriņš.</span></div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#">Kūriņš</a>
+    <span class="mark-sub"><span data-lang="lv">Kaugurciems, kopš 1993</span><span data-lang="en" hidden>Kaugurciems, since 1993</span></span>
+    <nav class="nav" aria-label="Sadaļas" data-aria-lv="Sadaļas" data-aria-en="Sections">
+      <a href="#ediens"><span data-lang="lv">Ēdiens</span><span data-lang="en" hidden>Food</span></a>
+      <a href="#vieta"><span data-lang="lv">Vieta</span><span data-lang="en" hidden>The place</span></a>
+      <a href="#laiks"><span data-lang="lv">Darba laiks</span><span data-lang="en" hidden>Hours</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Valoda / Language">
+      <button type="button" data-set="lv" aria-pressed="true">LV</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-sea" href="#galds"><span data-lang="lv">Rezervēt galdiņu</span><span data-lang="en" hidden>Book a table</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero on-sea" id="hero">
+  <picture class="hero-img">
+    <source media="(max-width:860px)" srcset="img/ieeja-m.jpg">
+    <img src="img/ieeja-d.jpg" width="1400" height="1504" alt="Kūriņa ieeja: koka jumtiņš ar sakrustotiem vējdēļiem un grebta izkārtne Kuhrinsch virs atvērtām durvīm" data-alt-en="The entrance to Kūriņš: a wooden porch with crossed gable boards and the carved sign Kuhrinsch above the open door" fetchpriority="high">
+  </picture>
+  <div class="hero-text">
+    <p class="eyebrow"><span data-lang="lv">Kafejnīca Kaugurciemā pie jūras, kopš 1993</span><span data-lang="en" hidden>Café by the sea in Kaugurciems, since 1993</span></p>
+    <h1><span data-lang="lv">Lielas porcijas, jūra aiz loga.</span><span data-lang="en" hidden>Big portions and a sea view.</span></h1>
+    <div class="hero-meta">
+      <span class="status" data-status="long"></span>
+      <span class="rating"><b><span data-lang="lv">4,6</span><span data-lang="en" hidden>4.6</span> ★</b> <span data-lang="lv">no 6560 atsauksmēm Google kartēs</span><span data-lang="en" hidden>from 6,560 Google reviews</span></span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn btn-light" href="#galds"><span data-lang="lv">Rezervēt galdiņu</span><span data-lang="en" hidden>Book a table</span></a>
+      <a class="btn btn-line" href="#edienkarte"><span data-lang="lv">Ēdienkarte</span><span data-lang="en" hidden>Menu</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="food" id="ediens">
+  <div class="wrap">
+    <h2><span data-lang="lv">Karbonādes, zivis un asinsdesa.</span><span data-lang="en" hidden>Chops, fish and blood sausage.</span></h2>
+    <p class="lead"><span data-lang="lv">Latviešu klasika un plaša zivju ēdienu izvēle. Porcijas ir lielas — arī desertiem.</span><span data-lang="en" hidden>Latvian classics and a wide choice of fish. The portions are big — desserts too.</span></p>
+  </div>
+  <div class="plates">
+    <figure><img src="img/karbonade.jpg" width="840" height="1049" loading="lazy" alt="Karbonāde ar citrona šķēli, salātiem un tomātiem" data-alt-en="Karbonāde with a slice of lemon, salad and tomatoes"><figcaption><span data-lang="lv">Karbonāde</span><span data-lang="en" hidden>Karbonāde (breaded chop)</span></figcaption></figure>
+    <figure><img src="img/zivs.jpg" width="840" height="1049" loading="lazy" alt="Zivs folijā ar salātiem, blakus alus kauss" data-alt-en="Fish in foil with salad, a mug of beer beside it"><figcaption><span data-lang="lv">Zivs folijā</span><span data-lang="en" hidden>Fish in foil</span></figcaption></figure>
+    <figure><img src="img/pankukas.jpg" width="840" height="1050" loading="lazy" alt="Kartupeļu pankūkas ar lasi, krējumu un ievārījumu" data-alt-en="Potato pancakes with salmon, sour cream and jam"><figcaption><span data-lang="lv">Kartupeļu pankūkas ar lasi</span><span data-lang="en" hidden>Potato pancakes with salmon</span></figcaption></figure>
+    <figure><img src="img/deserts.jpg" width="840" height="1049" loading="lazy" alt="Šokolādes kūka ar saldējumu un augļiem uz terases galda" data-alt-en="Chocolate cake with ice cream and fruit on a terrace table"><figcaption><span data-lang="lv">Šokolādes kūka ar saldējumu</span><span data-lang="en" hidden>Chocolate cake with ice cream</span></figcaption></figure>
+  </div>
+  <div class="wrap food-bottom">
+    <blockquote class="bigq">
+      <p data-lang="lv">„Porcijas ir miiiilzīgas. <span class="nb">2 karbonādes</span> katrā porcijā.”</p>
+      <p data-lang="en" hidden>“The portions are huuuuge. <span class="nb">Two karbonādes</span> in every portion.”</p>
+      <cite>karbonade.lv, 2022<span data-lang="en" hidden>, translated</span></cite>
+    </blockquote>
+    <div class="menu" id="edienkarte">
+      <h3><span data-lang="lv">No ēdienkartes</span><span data-lang="en" hidden>From the menu</span></h3>
+      <div class="groups">
+        <div><h4><span data-lang="lv">Karbonādes</span><span data-lang="en" hidden>Karbonādes (chops)</span></h4><ul><li><span data-lang="lv">Tradicionālā cūkgaļas karbonāde</span><span data-lang="en" hidden>Traditional pork karbonāde</span></li><li><span data-lang="lv">Cūkgaļas karbonāde ar sieru</span><span data-lang="en" hidden>Pork karbonāde with cheese</span></li><li><span data-lang="lv">Vistas karbonāde</span><span data-lang="en" hidden>Chicken karbonāde</span></li></ul></div>
+        <div><h4><span data-lang="lv">Siltie ēdieni</span><span data-lang="en" hidden>Mains</span></h4><ul><li><span data-lang="lv">Cūka sēnēs</span><span data-lang="en" hidden>Pork with mushrooms</span></li><li><span data-lang="lv">Cūkgaļas stilbs</span><span data-lang="en" hidden>Pork knuckle</span></li><li><span data-lang="lv">Asinsdesa</span><span data-lang="en" hidden>Blood sausage</span></li><li><span data-lang="lv">Liellopa šmoris</span><span data-lang="en" hidden>Braised beef</span></li><li><span data-lang="lv">Liellopa podiņš</span><span data-lang="en" hidden>Beef hotpot</span></li></ul></div>
+        <div><h4><span data-lang="lv">Zupa un uzkodas</span><span data-lang="en" hidden>Soup and starters</span></h4><ul><li><span data-lang="lv">Soļanka</span><span data-lang="en" hidden>Solyanka</span></li><li><span data-lang="lv">Rasols</span><span data-lang="en" hidden>Rasols (Latvian potato salad)</span></li><li><span data-lang="lv">Siļķe kažokā</span><span data-lang="en" hidden>Herring under a fur coat</span></li><li><span data-lang="lv">Ķiploku grauzdiņi</span><span data-lang="en" hidden>Fried rye bread with garlic</span></li></ul></div>
+      </div>
+      <p class="note"><span data-lang="lv">Visa ēdienkarte ir Kūriņa Instagram profilā, izceltajos stāstos „ĒDIENKARTE”. Uz mājām var pasūtīt caur Wolt.</span><span data-lang="en" hidden>The full menu is in the MENU highlight on Kūriņš's Instagram. For delivery, order through Wolt.</span></p>
+      <div class="menu-btns">
+        <a class="btn btn-sea" href="https://www.instagram.com/kuurins/" target="_blank" rel="noopener"><span data-lang="lv">Ēdienkarte Instagramā</span><span data-lang="en" hidden>Menu on Instagram</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="btn btn-line" href="https://wolt.com/en/lva/jurmala/restaurant/kri" target="_blank" rel="noopener"><span data-lang="lv">Pasūtīt caur Wolt</span><span data-lang="en" hidden>Order on Wolt</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+    <div class="rate">
+      <div class="score">
+        <span class="num"><span data-lang="lv">4,6</span><span data-lang="en" hidden>4.6</span></span>
+        <span class="of"><b><span data-lang="lv">no 5 Google kartēs</span><span data-lang="en" hidden>out of 5 on Google Maps</span></b><span data-lang="lv">6560 atsauksmes</span><span data-lang="en" hidden>6,560 reviews</span></span>
+      </div>
+      <blockquote>
+        <p data-lang="lv">„…braucu šeit regulāri un vienmēr aizbraucu labi un kārtīgi paēdusi.”</p>
+        <p data-lang="en" hidden>“…I come here regularly and always leave well and truly full.”</p>
+        <cite>Evelina M., Google<span data-lang="en" hidden>, translated</span></cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="place" id="vieta">
+  <div class="place-in">
+    <figure class="place-fig">
+      <img src="img/jura.jpg" width="1080" height="1440" loading="lazy" alt="Ceļa rādītājs kāpās pie jūras, blakus laipa uz pludmali" data-alt-en="A signpost in the dunes by the sea, with a boardwalk down to the beach">
+      <figcaption><span data-lang="lv">Ceļa rādītājs pie jūras: Stokholma 405 km, Malibu 9306 km.</span><span data-lang="en" hidden>The signpost by the sea: Stockholm 405 km, Malibu 9,306 km.</span></figcaption>
+    </figure>
+    <div class="place-text wrap">
+      <h2><span data-lang="lv">Koka māja pie jūras Kaugurciemā.</span><span data-lang="en" hidden>A wooden house by the sea in Kaugurciems.</span></h2>
+      <blockquote class="placeq">
+        <p data-lang="lv">„Zvejnieku mājas. Laivas. Vējš no jūras… Kūriņā kaut kas no tā visa vēl ir palicis. Tajā kokā. Tajā smaržā. Tajā mierā, kas ir tik tuvu jūrai…”</p>
+        <p data-lang="en" hidden>“Fishermen's houses. Boats. Wind from the sea… Something of all that is still here at Kūriņš. In the wood. In the smell. In the calm so close to the sea…”</p>
+        <cite>Raimonds A., Google<span data-lang="en" hidden>, translated</span></cite>
+      </blockquote>
+      <p class="place-note"><span data-lang="lv">Iekšā kamīns vēsākam laikam, var sēdēt arī ārā. Ir bērnu krēsliņi, var nākt ar suni, stāvvieta bez maksas — var piebraukt tuvu. Vakaros mēdz būt dzīvā mūzika: pajautājiet, kad nākamā reize. Banketiem un svinībām — zvaniet.</span><span data-lang="en" hidden>A fireplace inside for cooler days, and you can sit outside too. There are high chairs, dogs are welcome, and parking is free and close by. Some evenings there is live music: ask us when the next one is. For banquets and parties, give us a call.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="book on-sea" id="galds">
+  <div class="book-in">
+    <div class="book-left">
+      <figure class="book-fig"><img src="img/jura-krasts.jpg" width="1200" height="900" loading="lazy" alt="Balta smilšu pludmale un mierīga jūra zem zilām debesīm" data-alt-en="A white sand beach and a calm sea under a blue sky"><figcaption><span data-lang="lv"><q>„Pa logu var redzēt jūru.”</q> — Gunita K., Google</span><span data-lang="en" hidden><q>“You can see the sea from the window.”</q> — Gunita K., Google, translated</span></figcaption></figure>
+      <div class="book-intro wrap">
+        <h2><span data-lang="lv">Brīvdienās labāk rezervēt.</span><span data-lang="en" hidden>At weekends, book ahead.</span></h2>
+        <p class="lead"><span data-lang="lv">Brīvdienās bez rezervācijas var nākties gaidīt, līdz atbrīvojas galdiņš. Izvēlieties dienu un laiku — īsziņa sagatavosies pati.</span><span data-lang="en" hidden>At weekends, without a booking you may have to wait for a free table. Pick a day and a time and the text writes itself.</span></p>
+      </div>
+    </div>
+    <div class="form wrap" id="forma">
+      <div class="field">
+        <span class="fl"><span data-lang="lv">Diena</span><span data-lang="en" hidden>Day</span></span>
+        <div class="days" id="days"></div>
+      </div>
+      <div class="field">
+        <span class="fl"><span data-lang="lv">Laiks</span><span data-lang="en" hidden>Time</span></span>
+        <div class="times" id="times"></div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <span class="fl"><span data-lang="lv">Cik cilvēku</span><span data-lang="en" hidden>How many</span></span>
+          <div class="stepper"><button type="button" id="minus" aria-label="Mazāk" data-aria-lv="Mazāk" data-aria-en="Fewer">−</button><output id="ppl">2</output><button type="button" id="plus" aria-label="Vairāk" data-aria-lv="Vairāk" data-aria-en="More">+</button></div>
+        </div>
+        <div class="field">
+          <label class="fl" for="name"><span data-lang="lv">Vārds</span><span data-lang="en" hidden>Name</span></label>
+          <input class="in" id="name" type="text" autocomplete="given-name" data-ph-lv="Jūsu vārds" data-ph-en="Your name" placeholder="Jūsu vārds">
+        </div>
+      </div>
+      <div class="field">
+        <label class="fl" for="note"><span data-lang="lv">Vēlmes (nav obligāti)</span><span data-lang="en" hidden>Anything else (optional)</span></label>
+        <input class="in" id="note" type="text" data-ph-lv="piem., bērnu krēsliņš, nāksim ar suni" data-ph-en="e.g. a high chair, we're bringing a dog" placeholder="piem., bērnu krēsliņš, nāksim ar suni">
+      </div>
+      <div class="msg" aria-live="polite">
+        <span class="fl"><span data-lang="lv">Īsziņa, ko sagatavos jūsu tālrunis</span><span data-lang="en" hidden>The text message your phone will prepare</span></span>
+        <p id="msg"></p>
+      </div>
+      <div class="send">
+        <a class="btn btn-light" id="sms" href="sms:+37126529539"><span data-lang="lv">Sūtīt īsziņu</span><span data-lang="en" hidden>Send the text</span></a>
+        <a class="btn btn-line" href="tel:+37126529539"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.3-2 1.3a11.5 11.5 0 0 0 5.7 5.7l1.3-2 4.3 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg><span data-lang="lv">Zvanīt 26&nbsp;529&nbsp;539</span><span data-lang="en" hidden>Call 26&nbsp;529&nbsp;539</span></a>
+      </div>
+      <p class="fine-sea"><span data-lang="lv">Īsziņa aizies uz rezervāciju numuru 26&nbsp;529&nbsp;539 — to pašu, kas norādīts Kūriņa Instagram profilā. Jums atliek tikai to nosūtīt.</span><span data-lang="en" hidden>The text goes to the reservations number 26&nbsp;529&nbsp;539 — the one given on Kūriņš's Instagram. All you do is press send.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="laiks">
+  <div class="wrap visit-grid">
+    <div>
+      <h2><span data-lang="lv">Katru dienu, izņemot pirmdienu.</span><span data-lang="en" hidden>Every day except Monday.</span></h2>
+      <span class="status" data-status="long"></span>
+      <div class="hours" id="hours">
+        <div class="r" data-days="2,3,4"><span><span data-lang="lv">Otrdiena–ceturtdiena</span><span data-lang="en" hidden>Tuesday–Thursday</span></span><span>12:00–22:00</span></div>
+        <div class="r" data-days="5,6"><span><span data-lang="lv">Piektdiena, sestdiena</span><span data-lang="en" hidden>Friday, Saturday</span></span><span>12:00–23:00</span></div>
+        <div class="r" data-days="0"><span><span data-lang="lv">Svētdiena</span><span data-lang="en" hidden>Sunday</span></span><span>12:00–22:00</span></div>
+        <div class="r" data-days="1"><span><span data-lang="lv">Pirmdiena</span><span data-lang="en" hidden>Monday</span></span><span><span data-lang="lv">slēgts</span><span data-lang="en" hidden>closed</span></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="label"><span data-lang="lv">Kā atrast</span><span data-lang="en" hidden>Finding us</span></p>
+      <p class="addr">Kaugurciema iela 47,<br>Jūrmala</p>
+      <p class="addr-sub"><span data-lang="lv">Kaugurciemā pie jūras. Stāvvieta bez maksas.</span><span data-lang="en" hidden>In Kaugurciems, by the sea. Free parking.</span></p>
+      <div class="visit-btns">
+        <a class="btn btn-sea" href="https://maps.google.com/?cid=7977902692473437872" target="_blank" rel="noopener"><span data-lang="lv">Kā nokļūt</span><span data-lang="en" hidden>Directions</span></a>
+        <a class="btn btn-line" href="tel:+37126529539"><span data-lang="lv">Zvanīt</span><span data-lang="en" hidden>Call</span></a>
+      </div>
+      <dl class="contacts">
+        <div><dt><span data-lang="lv">Rezervācijas</span><span data-lang="en" hidden>Reservations</span></dt><dd><a href="tel:+37126529539">26&nbsp;529&nbsp;539</a></dd></div>
+        <div><dt><span data-lang="lv">Tālrunis</span><span data-lang="en" hidden>Phone</span></dt><dd><a href="tel:+37167734677">67&nbsp;734&nbsp;677</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/kuurins/" target="_blank" rel="noopener">@kuurins</a></dd></div>
+        <div><dt><span data-lang="lv">Uz mājām</span><span data-lang="en" hidden>Delivery</span></dt><dd><a href="https://wolt.com/en/lva/jurmala/restaurant/kri" target="_blank" rel="noopener">Wolt</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="fmark" role="img" aria-label="Kūriņš">Kuhrinsch</p>
+    <p class="fline"><span data-lang="lv">Kūriņš, kafejnīca Kaugurciemā pie jūras, kopš&nbsp;1993</span><span data-lang="en" hidden>Kūriņš, café by the sea in Kaugurciems, since&nbsp;1993</span></p>
+    <p class="fine"><span data-lang="lv">Šo lapu kā dizaina priekšlikumu sagatavoja Nikita; tā nav kafejnīcas „Kūriņš” oficiālā mājaslapa. Fotogrāfijas — Kūriņa viesi Google kartēs: Raimonds Arājs, Evelina Mironovica, Boriss Vindelis, Jānis Šilke, Inga Jurevica, Gunita Krapane, Līga Jasenko. Citāti — no atsauksmēm Google kartēs un karbonade.lv, bez labojumiem.</span><span data-lang="en" hidden>This page is a design proposal prepared by Nikita; it is not the official website of Kūriņš. Photographs: Kūriņš guests on Google Maps — Raimonds Arājs, Evelina Mironovica, Boriss Vindelis, Jānis Šilke, Inga Jurevica, Gunita Krapane, Līga Jasenko. Quotes are from reviews on Google Maps and karbonade.lv, translated from Latvian.</span></p>
+  </div>
+</footer>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <span class="status" data-status="short"></span>
+  <a class="btn btn-line call" href="tel:+37126529539" aria-label="Zvanīt 26 529 539" data-aria-lv="Zvanīt 26 529 539" data-aria-en="Call 26 529 539" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6.6 3.5h3l1.6 4.3-2 1.3a11.5 11.5 0 0 0 5.7 5.7l1.3-2 4.3 1.6v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></svg></a>
+  <a class="btn btn-sea" href="#galds" tabindex="-1"><span data-lang="lv">Rezervēt galdiņu</span><span data-lang="en" hidden>Book a table</span></a>
+</div>
+
+<script>
+(function(){
+  var PHONE = '+37126529539';
+  // Google hours; 0 = Sunday
+  var HOURS = {0:[12,22],1:null,2:[12,22],3:[12,22],4:[12,22],5:[12,23],6:[12,23]};
+  var T = {
+    lv:{
+      dayAt:['svētdien','pirmdien','otrdien','trešdien','ceturtdien','piektdien','sestdien'],
+      dayShort:['svētd.','pirmd.','otrd.','trešd.','ceturtd.','piektd.','sestd.'],
+      dayChip:['Svētd.','Pirmd.','Otrd.','Trešd.','Ceturtd.','Piektd.','Sestd.'],
+      today:'šodien', tomorrow:'rīt', tomorrowS:'rīt', Today:'Šodien', Tomorrow:'Rīt',
+      openUntil:function(h){return 'Šodien atvērts līdz '+h+':00';},
+      openUntilS:function(h){return 'Atvērts līdz '+h+':00';},
+      opensToday:function(h){return 'Šodien atveram '+h+':00';},
+      opensTodayS:function(h){return 'Atveram '+h+':00';},
+      closedNext:function(w){return 'Slēgts — atveram '+w+' 12:00';},
+      closedNextS:function(w){return 'Slēgts, '+w+' 12:00';},
+      todayTag:'šodien',
+      ppl:function(n){return n+((n%10===1&&n%100!==11)?' cilvēkam':' cilvēkiem');},
+      msg:function(d,t,n,name,note){
+        var s='Labdien! Vēlos rezervēt galdiņu Kūriņā: '+d+(t?', plkst. '+t:'')+', '+n+'.';
+        if(name) s+=' Vārds: '+name+'.';
+        if(note) s+=' Vēlmes: '+note+(/[.!?]$/.test(note)?'':'.');
+        return s+' Paldies!';
+      },
+      namePh:'Jūsu vārds', call:'Zvanīt 26&nbsp;529&nbsp;539', lang:'lv'
+    },
+    en:{
+      dayAt:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      dayShort:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+      dayChip:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+      today:'today', tomorrow:'tomorrow', tomorrowS:'', Today:'Today', Tomorrow:'Tomorrow',
+      openUntil:function(h){return 'Open today until '+h+':00';},
+      openUntilS:function(h){return 'Open until '+h+':00';},
+      opensToday:function(h){return 'Opens today at '+h+':00';},
+      opensTodayS:function(h){return 'Opens at '+h+':00';},
+      closedNext:function(w){return 'Closed — opens '+w+' at 12:00';},
+      closedNextS:function(w){return 'Closed, '+w+' 12:00';},
+      todayTag:'today',
+      ppl:function(n){return 'for '+n;},
+      msg:function(d,t,n,name,note){
+        var s='Hello! I would like to book a table at Kūriņš: '+d+(t?' at '+t:'')+', '+n+'.';
+        if(name) s+=' Name: '+name+'.';
+        if(note) s+=' Note: '+note+(/[.!?]$/.test(note)?'':'.');
+        return s+' Thank you!';
+      },
+      namePh:'Your name', call:'Call 26 529 539', lang:'en'
+    }
+  };
+
+  var lang = 'lv';
+  try { var saved = localStorage.getItem('kurins-lang'); if (saved === 'lv' || saved === 'en') lang = saved; } catch(e){}
+  try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'lv' || q === 'en') lang = q; } catch(e){}
+
+  // current time in Rīga
+  function riga(){
+    var d = new Date(), p = {};
+    try {
+      new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Riga',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,weekday:'short'})
+        .formatToParts(d).forEach(function(x){ p[x.type]=x.value; });
+      var wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[p.weekday];
+      var h = +p.hour % 24;
+      return {dow:wd, min:h*60 + +p.minute, y:+p.year, m:+p.month, d:+p.day};
+    } catch(e){
+      return {dow:d.getDay(), min:d.getHours()*60+d.getMinutes(), y:d.getFullYear(), m:d.getMonth()+1, d:d.getDate()};
+    }
+  }
+  function addDays(n, k){ var t = new Date(Date.UTC(n.y, n.m-1, n.d + k)); return {dow:t.getUTCDay(), d:t.getUTCDate(), m:t.getUTCMonth()+1}; }
+  function dd(x){ return (x<10?'0':'')+x; }
+
+  function statusText(short){
+    var n = riga(), L = T[lang], h = HOURS[n.dow];
+    if (h && n.min >= h[0]*60 && n.min < h[1]*60) return {open:true, t: short ? L.openUntilS(h[1]) : L.openUntil(h[1])};
+    if (h && n.min < h[0]*60) return {open:false, t: short ? L.opensTodayS(h[0]) : L.opensToday(h[0])};
+    for (var k=1;k<=7;k++){
+      var nx = addDays(n,k);
+      if (HOURS[nx.dow]) { var w = k===1 ? L.tomorrow : L.dayAt[nx.dow]; return {open:false, t: short ? L.closedNextS((k===1 && L.tomorrowS) ? L.tomorrowS : L.dayShort[nx.dow]) : L.closedNext(w)}; }
+    }
+    return {open:false,t:''};
+  }
+  function renderStatus(){
+    var a = statusText(false), b = statusText(true);
+    document.querySelectorAll('[data-status]').forEach(function(el){
+      var s = el.getAttribute('data-status') === 'short' ? b : a;
+      el.textContent = s.t; el.classList.toggle('is-open', s.open);
+    });
+    var n = riga();
+    document.querySelectorAll('#hours .r').forEach(function(r){
+      var on = r.getAttribute('data-days').split(',').indexOf(String(n.dow)) > -1;
+      r.classList.toggle('today', on);
+      var first = r.querySelector('span');
+      if (on) first.setAttribute('data-today', T[lang].todayTag); else first.removeAttribute('data-today');
+    });
+  }
+
+  // table request
+  var st = {day:null, time:null, ppl:2};
+  var daysEl = document.getElementById('days'), timesEl = document.getElementById('times');
+  function openDays(){
+    var n = riga(), out = [];
+    for (var k=0; k<12 && out.length<7; k++){
+      var x = addDays(n,k), h = HOURS[x.dow];
+      if (!h) continue;
+      if (k===0 && n.min > (h[1]-1)*60 - 30) continue;
+      out.push({k:k, dow:x.dow, d:x.d, m:x.m, h:h});
+    }
+    return out;
+  }
+  function dayWord(o){ var L=T[lang]; return o.k===0 ? L.today : o.k===1 ? L.tomorrow : L.dayAt[o.dow]; }
+  function renderDays(){
+    var L = T[lang], list = openDays();
+    if (!st.day || !list.some(function(o){return o.k===st.day.k;})) st.day = list[0];
+    daysEl.innerHTML = '';
+    list.forEach(function(o){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip';
+      var top = o.k===0 ? L.Today : o.k===1 ? L.Tomorrow : L.dayChip[o.dow];
+      b.innerHTML = top + '<small>' + dd(o.d) + '.' + dd(o.m) + '.</small>';
+      b.setAttribute('aria-pressed', o.k===st.day.k ? 'true' : 'false');
+      b.addEventListener('click', function(){ st.day = o; renderDays(); renderTimes(); renderMsg(); });
+      daysEl.appendChild(b);
+    });
+  }
+  function renderTimes(){
+    var n = riga(), o = st.day; timesEl.innerHTML = '';
+    if (!o) return;
+    var slots = [];
+    for (var h=o.h[0]; h<=o.h[1]-1; h++) slots.push(h);
+    var avail = slots.filter(function(h){ return !(o.k===0 && h*60 <= n.min + 30); });
+    if (st.time===null || avail.indexOf(st.time) < 0) st.time = avail.indexOf(18) > -1 ? 18 : (avail.length ? avail[0] : null);
+    slots.forEach(function(h){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = h + ':00';
+      var past = o.k===0 && h*60 <= n.min + 30;
+      b.disabled = past;
+      b.setAttribute('aria-pressed', h===st.time ? 'true' : 'false');
+      b.addEventListener('click', function(){ st.time = h; renderTimes(); renderMsg(); });
+      timesEl.appendChild(b);
+    });
+  }
+  function renderMsg(){
+    var L = T[lang], o = st.day;
+    var d = o ? (dayWord(o) + ', ' + dd(o.d) + '.' + dd(o.m) + '.') : '';
+    var t = st.time!==null ? st.time + ':00' : '';
+    var name = document.getElementById('name').value.trim();
+    var note = document.getElementById('note').value.trim();
+    var text = L.msg(d, t, L.ppl(st.ppl), name, note);
+    document.getElementById('msg').textContent = text;
+    var ios = /iP(hone|ad|od)/.test(navigator.userAgent);
+    document.getElementById('sms').href = 'sms:' + PHONE + (ios ? '&' : '?') + 'body=' + encodeURIComponent(text);
+  }
+  document.getElementById('minus').addEventListener('click', function(){ st.ppl = Math.max(1, st.ppl-1); document.getElementById('ppl').textContent = st.ppl; renderMsg(); });
+  document.getElementById('plus').addEventListener('click', function(){ st.ppl = Math.min(30, st.ppl+1); document.getElementById('ppl').textContent = st.ppl; renderMsg(); });
+  document.getElementById('name').addEventListener('input', renderMsg);
+  document.getElementById('note').addEventListener('input', renderMsg);
+
+  function setLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-lang]').forEach(function(el){ el.hidden = el.getAttribute('data-lang') !== l; });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set')===l ? 'true' : 'false'); });
+    document.querySelectorAll('[data-ph-' + l + ']').forEach(function(el){ el.placeholder = el.getAttribute('data-ph-' + l); });
+    document.querySelectorAll('img[data-alt-en]').forEach(function(img){
+      if (!img.hasAttribute('data-alt-lv')) img.setAttribute('data-alt-lv', img.alt);
+      img.alt = img.getAttribute('data-alt-' + l);
+    });
+    document.querySelectorAll('[data-aria-' + l + ']').forEach(function(el){ el.setAttribute('aria-label', el.getAttribute('data-aria-' + l)); });
+    document.title = l==='en' ? 'Kūriņš — café by the sea in Kaugurciems' : 'Kūriņš — kafejnīca Kaugurciemā pie jūras';
+    try { localStorage.setItem('kurins-lang', l); } catch(e){}
+    renderStatus(); renderDays(); renderTimes(); renderMsg();
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-set')); }); });
+  setLang(lang);
+  setInterval(renderStatus, 60000);
+
+  // header hairline + phone dock
+  var top = document.getElementById('top'), dock = document.getElementById('dock');
+  var hero = document.getElementById('hero'), book = document.getElementById('galds');
+  var heroGone = false, bookIn = false;
+  function dockUpdate(){ var on = heroGone && !bookIn; dock.classList.toggle('show', on); dock.setAttribute('aria-hidden', on ? 'false' : 'true'); dock.querySelectorAll('a').forEach(function(a){ a.tabIndex = on ? 0 : -1; }); }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ heroGone = !e[0].isIntersecting && e[0].boundingClientRect.top < 100; dockUpdate(); }, {rootMargin:'-80px 0px 0px 0px'}).observe(hero.querySelector('.hero-btns'));
+    new IntersectionObserver(function(e){ bookIn = e[0].isIntersecting; dockUpdate(); }).observe(document.getElementById('forma'));
+  }
+  window.addEventListener('scroll', function(){ top.classList.toggle('scrolled', window.scrollY > 4); }, {passive:true});
+})();
+</script>
+</body>
+</html>
